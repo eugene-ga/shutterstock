@@ -2,31 +2,41 @@
 
 # Using this module
 
-Here is a quick example of how this module can be used in other modules. The [TypeScript Module Resolution Logic](https://www.typescriptlang.org/docs/handbook/module-resolution.html) makes it quite easy. The file `src/index.ts` is a [barrel](https://basarat.gitbooks.io/typescript/content/docs/tips/barrel.html) that re-exports selected exports from other files. The _package.json_ file contains `main` attribute that points to the generated `lib/index.js` file and `typings` attribute that points to the generated `lib/index.d.ts` file.
+```
+yarn add shutterstock-submit
+```
 
-> If you are planning to have code in multiple files (which is quite natural for a NodeJS module) that users can import, make sure you update `src/index.ts` file appropriately.
-
-Now assuming you have published this amazing module to _npm_ with the name `my-amazing-lib`, and installed it in the module in which you need it -
-
-- To use the `Greeter` class in a TypeScript file -
+- Session cookie required to use this module. It cannot access shutterstock contributor area using user credentials, beacause shutterstock requires solving captcha.
 
 ```ts
-import { Greeter } from "my-amazing-lib";
-
-const greeter = new Greeter("World!");
-greeter.greet();
+import { ShutterstockClient } from 'shutterstock-submit';
+const client = new ShutterstockClient(<provide session cookie here>);
 ```
 
-- To use the `Greeter` class in a JavaScript file -
+- To upload file
+```ts
+const file = await client.upload('path/to/file');
+ ```
 
-```js
-const Greeter = require('my-amazing-lib').Greeter;
+ - to get all uploaded but not submited images
+ ```ts
+const imagesToSubmit = await client.getImagesToSubmit();
+ ```
 
-const greeter = new Greeter('World!');
-greeter.greet();
-```
+- to update images attributes
+ ```ts
+  await client.save([
+    {
+      categories: ['11', '1'],
+      id: '1515595244',
+    },
+  ]);
+ ```
 
-## Setting travis and coveralls badges
-1. Sign in to [travis](https://travis-ci.org/) and activate the build for your project.
-2. Sign in to [coveralls](https://coveralls.io/) and activate the build for your project.
-3. Replace {{github-user-name}}/{{github-app-name}} with your repo details like: "ospatil/generator-node-typescript".
+ - to submit images
+ ```ts
+ await client.submit([1515595244]);
+ ```
+
+- session id can be taken using chrome dev tools
+![compare selected](https://github.com/shvendala/shutterstock/blob/master/docs/dev-tools.png?raw=true)

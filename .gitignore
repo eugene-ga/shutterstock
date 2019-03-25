@@ -1,0 +1,11 @@
+coverage/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.nyc_output
+lib
+lib_test
+charles.cer
+.DS_Store
+src/call.ts

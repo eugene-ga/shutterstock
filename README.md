@@ -28,14 +28,14 @@ const imagesToSubmit = await client.getImagesToSubmit();
   await client.save([
     {
       categories: ['11', '1'],
-      id: '1515595244',
+      id: file.upload_id,
     },
   ]);
  ```
 
  - to submit images
  ```ts
- await client.submit([1515595244]);
+ await client.submit([+file.upload_id]);
  ```
 
 - session id can be taken using chrome dev tools

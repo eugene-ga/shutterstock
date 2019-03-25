@@ -1,9 +1,16 @@
-import * as assert from "assert";
+import * as assert from 'assert';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as request from 'request-promise-native';
 import * as url from 'url';
-import { IImagesToSubmitResponse, ISaveItemRequest, ISaveItemsResponse, ISubmitItemsRequest, ISubmitItemsResponse, IUploadResult } from './types';
+import {
+  IImagesToSubmitResponse,
+  ISaveItemRequest,
+  ISaveItemsResponse,
+  ISubmitItemsRequest,
+  ISubmitItemsResponse,
+  IUploadResult,
+} from './types';
 
 export class ShutterstockClient {
   private static HOST = 'https://submit.shutterstock.com';

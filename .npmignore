@@ -8,6 +8,9 @@ yarn-error.log*
 .nyc_output
 lib
 lib_test
+charles.cer
+.DS_Store
+src/call.ts
 
 # npmignore
 lib/call.*

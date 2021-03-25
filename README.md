@@ -1,4 +1,4 @@
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+### For reference and example only, no warranty of any kind.
 
 # Using this module
 

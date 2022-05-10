@@ -1,10 +1,6 @@
 ### For reference and example only, no warranty of any kind.
 
-# Using this module
-
-```
-yarn add shutterstock-submit
-```
+# Usage
 
 - Session cookie required to use this module. It cannot access shutterstock contributor area using user credentials, beacause shutterstock requires solving captcha.
 

@@ -113,7 +113,10 @@ export class ShutterstockClient {
   public async save(
     items: Array<Partial<ISaveItemRequest>>
   ): Promise<ISaveItemsResponse> {
-    assert(items.every(item => !!item.id), 'id must be set');
+    assert(
+      items.every(item => !!item.id),
+      'id must be set'
+    );
     const normalizedIds = items.map(item => ({
       ...item,
       id: 'U' + (item.id || '').replace(/^U/gi, ''),
